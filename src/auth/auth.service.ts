@@ -30,7 +30,8 @@ export class AuthService {
       }
     })
 
-    return user;
+    //return user;
+    return this.signToken(user.id, user.email);
   }
 
   async login(dto: LoginDto) {
