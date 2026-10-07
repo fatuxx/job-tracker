@@ -7,11 +7,31 @@ Content-Type: application/json
   "password": "password123"
 }
 
-### Login
+### Login (grab token)
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
   "email": "facu@test.com",
-  "password": "password13"
+  "password": "password123"
 }
+
+### Create application (use token from login)
+POST http://localhost:3000/applications
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZDE2MDM0Mi01NGMyLTQzZGUtYTc0NS04YzI2Y2ZjNWJhNzEiLCJlbWFpbCI6ImZhY3VAdGVzdC5jb20iLCJpYXQiOjE3OTEzNzUxOTMsImV4cCI6MTc5MTk3OTk5M30.brw8kZIFXVeYi0rlLzioqkE-6fzqmqQq2urn-T1fSEY
+
+{
+  "company": "Praemium",
+  "role": "Senior Software Engineer",
+  "salaryMin": 170000,
+  "salaryMax": 190000,
+  "status": "APPLIED",
+  "appliedAt": "2026-10-07",
+  "source": "LinkedIn",
+  "notes": "Vue frontend, wealth tech"
+}
+
+### List all applications
+GET http://localhost:3000/applications
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZDE2MDM0Mi01NGMyLTQzZGUtYTc0NS04YzI2Y2ZjNWJhNzEiLCJlbWFpbCI6ImZhY3VAdGVzdC5jb20iLCJpYXQiOjE3OTEzNzUxOTMsImV4cCI6MTc5MTk3OTk5M30.brw8kZIFXVeYi0rlLzioqkE-6fzqmqQq2urn-T1fSEY
